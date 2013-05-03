@@ -1,4 +1,4 @@
-= ProSys
+# ProSys Ruby Client
 
 ##This is an attempt at a Ruby client for ProVu's ProSys API
 ```ruby
