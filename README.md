@@ -4,7 +4,12 @@
 ```ruby
 require 'prosys'
 
-client = Prosys::Client.new(:username =>"username", :password => "password", :debug => true, :testing => true)
+client = Prosys::Client.new(:username =>"username",
+                            :password => "password",
+                            :debug => true,
+                            :testing => true)
+# :debug prints the request and response
+# :testing doesn't make POST requests
 ```
 ##Methods
 ```ruby
