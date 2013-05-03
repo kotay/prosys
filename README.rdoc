@@ -1,0 +1,23 @@
+= ProSys
+
+This is an attempt at a client for ProSys.
+
+  require 'prosys'
+
+  client = Prosys::Client.new(:username =>"hello", :password => "password", :debug => true)
+  order = {
+    :order_ref    => "286",
+    :name         => "Mr Happy",
+    :c_name       => "Happy House",
+    :address      => "41 Nevison avenue Chelmsford",
+    :postcode     => "CY22 6EB",
+    :phone        => "+4423239281",
+    :rj_adaptors  => "on",
+    :saturday     => "no",
+    :lines        => [
+      {:item => "PVSnom360", :quantity => "1"}
+    ]
+  }
+
+  p client.api.create_order(order)
+  # => "000 - success"
