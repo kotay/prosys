@@ -25,6 +25,9 @@ module Prosys
           end
         end
       end
+      if @attributes[:testing]
+        doc.tag!("test","yes")
+      end
     end
   end
 end
