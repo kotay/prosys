@@ -24,9 +24,9 @@ module Prosys
             doc.tag!(node, value)
           end
         end
-      end
-      if @attributes[:testing]
-        doc.tag!("test","yes")
+        if @attributes[:testing] # If testing, apply test tag <test>yes</test>
+          doc.tag!("test","yes")
+        end
       end
     end
   end

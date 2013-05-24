@@ -42,16 +42,12 @@ module Prosys
       request.basic_auth @username, @password
       puts "-> #{request.body}" if debug
       # DON'T MAKE AN ORDER IF TESTING!
-      http.request(request) unless testing
+      http.request(request)
     end
 
     def extract_response response
-      unless testing
-        puts "<- #{response.body}" if debug
-        response.body
-      else
-        puts "Test mode [Didn't send anything]" if debug
-      end
+      puts "<- #{response.body}" if debug
+      response.body
     end
 
     def api
@@ -120,6 +116,10 @@ module Prosys
 
     def order_released(order_id)
       order(order_id)["released"]
+    end
+
+    def order_deliveries(order_id)
+      order(order_id)["deliveries"]
     end
 
     private
