@@ -15,5 +15,6 @@ Gem::Specification.new 'prosys', Prosys::VERSION do |s|
   s.add_dependency 'activesupport'
   s.add_dependency 'crack'
   s.add_dependency 'builder'
+  s.add_dependency 'mechanize'
   s.add_dependency 'pry'
 end

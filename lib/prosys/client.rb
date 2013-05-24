@@ -2,7 +2,7 @@ require 'crack'
 require 'net/http'
 require 'uri'
 require 'pry'
-
+require 'mechanize'
 
 module Prosys
   class Client
@@ -120,6 +120,12 @@ module Prosys
 
     def order_deliveries(order_id)
       order(order_id)["deliveries"]
+    end
+
+    def tracking_information_html(consignment_id, courier = "apc")
+      agent = Mechanize.new
+      page = agent.get("http://track.provu.co.uk/?c=#{courier}&con=#{consignment_id}")
+      page.search(%Q{//div[@id='track-main']}).inner_html.gsub("\n","")
     end
 
     private
